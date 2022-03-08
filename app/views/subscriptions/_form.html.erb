@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.association :plan %>
-    <%= f.association :user %>
+    <%= f.association :user, error_html: { class: "validation_error"} %>
   </div>
 
   <div class="form-actions">

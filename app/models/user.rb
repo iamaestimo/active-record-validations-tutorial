@@ -13,6 +13,9 @@ class User < ApplicationRecord
     # validating password length
     validates :password, length: 8..15
 
+    # validate business email
+    validates_with UserValidator
+
     # associations
     has_many :subscriptions
     has_many :plans, through: :subscriptions
