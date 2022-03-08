@@ -1,7 +1,7 @@
 class UserValidator < ActiveModel::Validator 
     def validate(record)
         if is_not_business_email(record.email) == true
-            record.errors.add(:base, "This is not a business email!")
+            record.errors.add(:email, "This is not a business email!")
         end
     end
 
