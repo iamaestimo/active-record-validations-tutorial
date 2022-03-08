@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     # validating presence
-    validates :name, presence: true
+    # validates :name, presence: true
     validates :email, presence: true
 
     # validating confirmation (that 2 fields match)
@@ -15,6 +15,11 @@ class User < ApplicationRecord
 
     # validate business email
     validates_with UserValidator
+
+    # passing attributes to the name error message
+    validates_presence_of :name, message: Proc.new { | user, data |
+    "#{data[:attribute]} is needed for all registrations!" } 
+
 
     # associations
     has_many :subscriptions
